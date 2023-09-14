@@ -3,7 +3,7 @@ import React from 'react'
 import SignUpForm from '../Component/SignUpForm';
 import signInImg from'../assets/formImgs/64663.jpg';
 
-const SignUp = ()=> {
+const SignUp = (props)=> {
 
     const containerClass ='flex justify-center items-center flex-wrap px-6 py-12 max-w-6xl mx-auto';
 

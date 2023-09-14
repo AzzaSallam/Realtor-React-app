@@ -10,10 +10,14 @@ export default function ForgotPassForm() {
         setEnteredEmail(event.target.value);
     }
 
+    const onSubmitHandler=(e)=>{
+        e.preventDefault();
+}
+
     const inputClass ='w-full mb-6 px-4 py-2 text-xl text-gray-600 bg-white border-transparent border-b-gray-300  rounded transition ease-in-out';
 
     return <div className='w-full md:w-[67%] lg:w-[40%] lg:ml-20'>
-        <form >
+        <form onSubmit={onSubmitHandler}>
             <input type='email' 
                     placeholder='email@email.com' 
                     onChange={emailChangeHandler}

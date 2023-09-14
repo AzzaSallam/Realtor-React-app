@@ -9,7 +9,7 @@ const ForgotPassword = ()=> {
 
     return (
         <section>
-            <h1 className='text-4xl text-center my-6 mb-2 font-bold text-red-500'>Sign <span className='text-black'>In</span></h1>
+            <h1 className='text-4xl text-center my-6 mb-2 font-bold text-red-500'>Forgot <span className='text-black'>Password</span></h1>
             <div className={`${containerClass}`}>
                 <div className='md:w-[67%] lg:w-[50%] mb-12 md:mb-6 '>
                     <img src={signInImg} alt='key' className='w-full rounded-3xl'/>

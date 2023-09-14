@@ -1,4 +1,6 @@
 import { createBrowserRouter , RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 import Home from "./Pages/Home";
 import Profile from './Pages/Profile';
@@ -24,7 +26,22 @@ const routerContainer = createBrowserRouter([
 ])
 
 function App() {
-  return <RouterProvider router={routerContainer}/>
+  return<>
+        <RouterProvider router={routerContainer}/>
+        <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            />  
+  </> 
+  
 }
 
 export default App;
