@@ -1,13 +1,13 @@
 import React , {useState} from 'react';
 import { Link , useNavigate} from 'react-router-dom';
-import { getAuth , createUserWithEmailAndPassword , updateProfile} from "firebase/auth";
+import { getAuth , createUserWithEmailAndPassword , updateProfile } from "firebase/auth";
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
 import {db} from '../firebase';
 
-
 import { AiFillEye , AiFillEyeInvisible } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
 import { toast } from 'react-toastify';
+
+import AuthButton from './AuthButton';
 
 
 export default function SignUpForm() {
@@ -101,17 +101,7 @@ export default function SignUpForm() {
                 active:bg-blue-800 uppercase'
                 > Sign in </button>
 
-                <div className='flex items-center before:border-t before:flex-1 before:border-gray-300
-                                        after:border-t after:flex-1 after:border-gray-300'>
-                <p className='text-center font-semibold mx-4'>OR</p>
-                </div>
-
-                <button type='submit' 
-                className='flex items-center justify-center w-full px-7 py-3 my-4 text-sm
-                text-white bg-red-700 font-medium rounded 
-                shadow-md hover:bg-red-800 transition duration-150 ease-in-out
-                active:bg-red-900 uppercase'
-                ><FcGoogle className='bg-white mr-1 text-2xl rounded-full'/> Continue with google</button>
+                <AuthButton/>
             </div>
         </form>
     </div>
