@@ -1,12 +1,14 @@
 import React , {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { AiFillEye , AiFillEyeInvisible } from "react-icons/ai";
 
 import AuthButton from './AuthButton';
+import { toast } from 'react-toastify';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignInForm() {
-
+    const navigate = useNavigate();
     const [showPassword , setShoePassword]=useState(false);
     const [formData , setFormData]=useState({
         email:"",
@@ -26,8 +28,19 @@ export default function SignInForm() {
         setShoePassword((prevState)=>!prevState);
     }
 
-    const onSubmitHandler =(e)=>{
+    const onSubmitHandler =async (e)=>{
         e.preventDefault();
+        try{
+            const auth = getAuth();
+            const userCredential = await signInWithEmailAndPassword(auth , email , password);
+            if(userCredential.user){
+                toast.success("Sign in was success");
+                navigate("/");
+            }
+
+        }catch(error){
+            toast.error('Bad user credentials');
+        }
     }
 
     const inputClass ='w-full mb-6 px-4 py-2 text-xl text-gray-600 bg-white border-transparent border-b-gray-300  rounded transition ease-in-out';

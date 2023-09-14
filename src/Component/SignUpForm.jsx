@@ -99,7 +99,7 @@ export default function SignUpForm() {
                 text-white bg-blue-600 font-medium rounded 
                 shadow-md hover:bg-blue-700 transition duration-150 ease-in-out
                 active:bg-blue-800 uppercase'
-                > Sign in </button>
+                > Sign up </button>
 
                 <AuthButton/>
             </div>

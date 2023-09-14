@@ -26,7 +26,7 @@ const routerContainer = createBrowserRouter([
 ])
 
 function App() {
-  return<>
+  return <>
         <RouterProvider router={routerContainer}/>
         <ToastContainer
             position="top-right"
@@ -39,8 +39,8 @@ function App() {
             draggable
             pauseOnHover
             theme="dark"
-            />  
-  </> 
+        />  
+    </> 
   
 }
 
