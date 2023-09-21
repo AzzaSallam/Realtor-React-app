@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 
-import MainHeader from "../Component/MainHeader";
+import MainHeader from "./MainHeader";
 
 import React from 'react'
 

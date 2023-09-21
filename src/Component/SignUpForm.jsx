@@ -89,7 +89,7 @@ export default function SignUpForm() {
                 }
             </div>
             <div className='flex justify-between flex-nowrap text-sm font-semibold mx-3 my-2 '>
-                <p>have an account? <Link to='/sign-in' className='text-blue-500 hover:text-blue-800 transition duration-200 ease-in-out'>Sign in</Link></p>
+                <p>Have an account? <Link to='/sign-in' className='text-blue-500 hover:text-blue-800 transition duration-200 ease-in-out'>Sign in</Link></p>
                 <p><Link to='/forgot-password' className='text-red-500 hover:text-red-700'>Forgot password?</Link></p>
             </div>
             {/* Buttons Form */}

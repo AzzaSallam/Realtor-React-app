@@ -8,7 +8,8 @@ import Offers from './Pages/Offers';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import ForgotPassword from './Pages/ForgotPassword';
-import Root from "./Pages/Root";
+import PrivateRoute from "./Component/PrivateRoute";
+import Root from "./Component/Root";
 
 
 const routerContainer = createBrowserRouter([
@@ -16,10 +17,12 @@ const routerContainer = createBrowserRouter([
     path : '/' , element : <Root/> , 
     children:[
       {index : true , element: <Home/>},
-      {path : '/offers' , element: <Offers/>},
-      {path : 'profile' , element: <Profile/>},
       {path : 'sign-in' , element: <SignIn/>},
       {path : 'sign-up' , element: <SignUp/>},
+      {path : 'profile' , element: <PrivateRoute/> ,
+        children:[{index:true , element:<Profile/>}]
+      },
+      {path : 'offers' , element: <Offers/>},
       {path : 'forgot-password' , element: <ForgotPassword/>},
     ]
   }
