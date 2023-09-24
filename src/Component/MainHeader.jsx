@@ -1,12 +1,24 @@
-import { useLocation , useNavigate } from 'react-router';
-import React from 'react'
+import {  useLocation , useNavigate } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import {getAuth, onAuthStateChanged} from 'firebase/auth';
 
 import logoimg from '../assets/logo/Screenshot 2023-09-12 042318.png';
 
 export default function MainHeader() {
-
+    const [pageState , setPageState] = useState('Sign in');
     const location = useLocation();
     const navigate = useNavigate();
+    const auth = getAuth();
+
+    useEffect(()=>{
+        onAuthStateChanged(auth , (user)=>{
+            if(user){
+                setPageState("Profile")
+            }else{
+                setPageState("Sign in")
+            }
+        })
+    }, [auth] )
 
     const matchLocation = (curRouter)=>{
         if(curRouter === location.pathname){
@@ -26,7 +38,7 @@ export default function MainHeader() {
                     <ul className='flex space-x-10 font-semibold text-gray-500 text-lg'>
                         <li onClick={()=>navigate('/')} className={`py-5 cursor-pointer hover:text-black ${matchLocation('/') && activeClass}`}>Home</li>
                         <li onClick={()=>navigate('/offers')} className={`py-5 cursor-pointer hover:text-black ${matchLocation('/offers') && activeClass}`}>Offers</li>
-                        <li onClick={()=>navigate('/sign-in')} className={`py-5 cursor-pointer hover:text-black ${matchLocation('/sign-in') && activeClass}`}>Sign in</li>
+                        <li onClick={()=>navigate('/profile')} className={`py-5 cursor-pointer hover:text-black ${(matchLocation('/sign-in')||matchLocation('/profile')) && activeClass}`}>{pageState}</li>
                     </ul>
                 </div>
             </header>

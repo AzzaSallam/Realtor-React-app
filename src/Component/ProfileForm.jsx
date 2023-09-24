@@ -55,7 +55,7 @@ const ProfileForm = ()=>{
             <input type='text' id="name" 
                     value={name} disabled={!changeDetail} 
                     onChange={onChangeHandler} 
-                    className={`${inputClass} ${changeDetail && 'bg-red-100 focus:bg-red-100'}`} />
+                    className={` ${inputClass} ${changeDetail && 'bg-red-200 focus:bg-red-100 focus:outline-0'} `} />
             <input type='email' id="email" value={email} disabled className={`${inputClass}`} />
             <div className="flex justify-between whitespace-nowrap items-center font-bold mx-1">
                 <p className="text-sm font-bold">Do you want change your name ?  
