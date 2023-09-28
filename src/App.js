@@ -10,6 +10,7 @@ import SignUp from './Pages/SignUp';
 import ForgotPassword from './Pages/ForgotPassword';
 import PrivateRoute from "./Component/PrivateRoute";
 import Root from "./Component/Root";
+import CreateListing from "./Pages/CreateListing";
 
 
 const routerContainer = createBrowserRouter([
@@ -24,6 +25,7 @@ const routerContainer = createBrowserRouter([
       },
       {path : 'offers' , element: <Offers/>},
       {path : 'forgot-password' , element: <ForgotPassword/>},
+      {path : 'create-listing' , element: <CreateListing/>},
     ]
   }
 ])

@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
 
+import AddlistingButton from "./AddListingButton";
+
 const ProfileForm = ()=>{
     const navigate = useNavigate();
     const auth = getAuth();
@@ -50,7 +52,7 @@ const ProfileForm = ()=>{
     const inputClass ='w-full mb-6 px-4 py-2 text-xl text-gray-600 bg-white border-transparent border-b-gray-300  rounded transition ease-in-out';
 
 
-    return<div className="w-full md:w-[50%] mx-auto px-3">
+    return<div className="w-full md:w-[50%] mt-5 px-3">
         <form>
             <input type='text' id="name" 
                     value={name} disabled={!changeDetail} 
@@ -75,6 +77,7 @@ const ProfileForm = ()=>{
                     Sign out
                 </button>
             </div>
+            <AddlistingButton/>
         </form>
     </div>
 }
