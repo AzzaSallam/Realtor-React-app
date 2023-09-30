@@ -21,11 +21,13 @@ const routerContainer = createBrowserRouter([
       {path : 'sign-in' , element: <SignIn/>},
       {path : 'sign-up' , element: <SignUp/>},
       {path : 'profile' , element: <PrivateRoute/> ,
-        children:[{index:true , element:<Profile/>}]
+        children:[
+          {index: true , element:<Profile/>},
+          {path : '/profile/create-listing' , element: <CreateListing/>},
+        ]
       },
       {path : 'offers' , element: <Offers/>},
       {path : 'forgot-password' , element: <ForgotPassword/>},
-      {path : 'create-listing' , element: <CreateListing/>},
     ]
   }
 ])
