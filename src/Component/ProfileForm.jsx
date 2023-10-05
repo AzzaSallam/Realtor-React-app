@@ -1,12 +1,12 @@
 import { getAuth, updateProfile } from "firebase/auth";
-import { collection, doc, getDoc, getDocs, orderBy, query, updateDoc, where } from "firebase/firestore";
+import { collection, doc, getDocs, orderBy, query, updateDoc, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
 
 import AddlistingButton from "./AddListingButton";
-import ListingItem from "./ListingsSection";
+import ListingItem from "./ListingsItem";
 
 const ProfileForm = ()=>{
     const navigate = useNavigate();
@@ -80,14 +80,15 @@ const ProfileForm = ()=>{
     const inputClass ='w-full mb-6 px-4 py-2 text-xl text-gray-600 bg-white border-transparent border-b-gray-300  rounded transition ease-in-out';
 
 
-    return<div className="w-full md:w-[50%] mt-5 px-3">
-        <form>
-            <input type='text' id="name" 
-                    value={name} disabled={!changeDetail} 
-                    onChange={onChangeHandler} 
-                    className={` ${inputClass} ${changeDetail && 'bg-red-200 focus:bg-red-100 focus:outline-0'} `} />
-            <input type='email' id="email" value={email} disabled className={`${inputClass}`} />
-            <div className="flex justify-between whitespace-nowrap items-center font-bold mx-1">
+    return<div className="w-full mt-5 px-3">
+        <section className="max-w-6xl mx-auto flex justify-center items-center ">
+            <form >
+                <input type='text' id="name" 
+                        value={name} disabled={!changeDetail} 
+                        onChange={onChangeHandler} 
+                        className={` ${inputClass} ${changeDetail && 'bg-red-200 focus:bg-red-100 focus:outline-0'} `} />
+                <input type='email' id="email" value={email} disabled className={`${inputClass}`} />
+                <div className="flex justify-between whitespace-nowrap items-center font-bold mx-1">
                 <p className="text-sm font-bold">Do you want change your name ?  
                     <span onClick={()=>{changeDetail && onSubmit();
                                     setChangeDetail((prevState)=>!prevState)
@@ -104,13 +105,14 @@ const ProfileForm = ()=>{
                         text-white hover:bg-red-700">
                     Sign out
                 </button>
-            </div>
-            <AddlistingButton/>
-        </form>
+                </div>
+                <AddlistingButton/>
+            </form>
+        </section>
         {!loading && listings.length >0 &&(
-            <div className="max-w-6xl px-3 mt-6 mx-auto">
-                <h1 className='text-4xl text-center  font-semibold text-red-500'>List<span className='text-black'>ings</span></h1>
-                <ul>
+            <div className="max-w-7xl px-3 mt-6 mx-auto">
+                <h1 className=' text-4xl text-center  font-semibold text-red-500'>List<span className='text-black'>ings</span></h1>
+                <ul className="mt-6 mb-6 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                     {listings.map((listing)=>(
                         <ListingItem key={listing.id} id={listing.id} listing={listing.data}/>
                     ))}
