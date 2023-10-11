@@ -1,5 +1,5 @@
 import { getAuth, updateProfile } from "firebase/auth";
-import { collection, doc, getDocs, orderBy, query, updateDoc, where } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs, orderBy, query, updateDoc, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
@@ -11,6 +11,7 @@ import ListingItem from "./ListingsItem";
 const ProfileForm = ()=>{
     const navigate = useNavigate();
     const auth = getAuth();
+    const[conDelete , setConDelete] = useState(true);
     const [changeDetail , setChangeDetail] = useState(false);
     const [listings , setListings]=  useState(null);
     const [loading , setLoading] = useState(true);
@@ -76,11 +77,32 @@ const ProfileForm = ()=>{
         fetchUserListings();
     },[auth.currentUser.uid])
 
+    const onDeleteHandler= async(listingID)=>{
+        console.log(conDelete)
+        if(conDelete){
+            await deleteDoc(doc(db , 'listings' , listingID));
+            const updatedListings = listings.filter(
+                (listing)=>listing.id !== listingID
+            );
+            setListings(updatedListings)
+            console.log('listings arr',listings);
+            
+            toast.success("Successfully deleted the listing.")
+            console.log("Doneee")
+            setConDelete(false);
+        }
+        
+    }
+
+    const onEditHandler =(listingID)=>{
+        navigate(`/edit-listing/${listingID}`)
+    }
+
+
 
     const inputClass ='w-full mb-6 px-4 py-2 text-xl text-gray-600 bg-white border-transparent border-b-gray-300  rounded transition ease-in-out';
-
-
-    return<div className="w-full mt-5 px-3">
+    return(
+    <div className="w-full mt-5 px-3">
         <section className="max-w-6xl mx-auto flex justify-center items-center ">
             <form >
                 <input type='text' id="name" 
@@ -114,12 +136,19 @@ const ProfileForm = ()=>{
                 <h1 className=' text-4xl text-center  font-semibold text-red-500'>List<span className='text-black'>ings</span></h1>
                 <ul className="mt-6 mb-6 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                     {listings.map((listing)=>(
-                        <ListingItem key={listing.id} id={listing.id} listing={listing.data}/>
+                        <ListingItem key={listing.id} 
+                                    id={listing.id} 
+                                    listing={listing.data}
+                                    onEdit = {()=>onEditHandler(listing.id)}
+                                    onConfirmDelete={()=>onDeleteHandler(listing.id)}
+                        />
                     ))}
                 </ul>
             </div>
         )}
     </div>
-}
+)}
 
 export default ProfileForm;
+
+
