@@ -11,6 +11,7 @@ import ForgotPassword from './Pages/ForgotPassword';
 import PrivateRoute from "./Component/PrivateRoute";
 import Root from "./Component/Root";
 import CreateListing from "./Pages/CreateListing";
+import EditListing from "./Pages/EditListing";
 
 
 const routerContainer = createBrowserRouter([
@@ -24,6 +25,7 @@ const routerContainer = createBrowserRouter([
         children:[
           {index: true , element:<Profile/>},
           {path : '/profile/create-listing' , element: <CreateListing/>},
+          {path : '/profile/edit-listing/:listingId' , element: <EditListing/>},
         ]
       },
       {path : 'offers' , element: <Offers/>},

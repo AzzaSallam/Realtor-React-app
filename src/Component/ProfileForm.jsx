@@ -95,7 +95,7 @@ const ProfileForm = ()=>{
     }
 
     const onEditHandler =(listingID)=>{
-        navigate(`/edit-listing/${listingID}`)
+        navigate(`/profile/edit-listing/${listingID}`)
     }
 
 
