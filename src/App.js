@@ -12,6 +12,7 @@ import PrivateRoute from "./Component/PrivateRoute";
 import Root from "./Component/Root";
 import CreateListing from "./Pages/CreateListing";
 import EditListing from "./Pages/EditListing";
+import Listing from './Pages/Listing';
 
 
 const routerContainer = createBrowserRouter([
@@ -29,6 +30,7 @@ const routerContainer = createBrowserRouter([
         ]
       },
       {path : 'offers' , element: <Offers/>},
+      {path : 'category/:categoryType/:listingId' , element: <Listing/>},
       {path : 'forgot-password' , element: <ForgotPassword/>},
     ]
   }

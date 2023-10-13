@@ -1,5 +1,5 @@
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { addDoc, collection, serverTimestamp , doc , getDoc , updateDoc} from "firebase/firestore";
+import { serverTimestamp , doc , getDoc , updateDoc} from "firebase/firestore";
 import {getAuth} from 'firebase/auth';
 import { useState , useEffect} from "react";
 import { toast } from "react-toastify";
@@ -7,7 +7,7 @@ import {v4 as uuidv4} from 'uuid';
 import {db} from '../firebase';
 
 import Spinner from '../Component/Spinner';
-import { useNavigate , useParams} from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 const EditListing = ()=>{
 
