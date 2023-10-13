@@ -9,6 +9,8 @@ import {EffectFade , Autoplay,Navigation,Pagination} from "swiper/modules";
 import "swiper/css/bundle";
 import {FaShare} from 'react-icons/fa'
 
+import ListingInfo from "../Component/ListingInfo";
+
 const Listing =()=>{
     const params = useParams();
     const [listing , setListing] = useState(null);
@@ -49,7 +51,8 @@ const Listing =()=>{
                 }} >
                 <FaShare className="text-lg text-slate-500"/>
             </div>
-            {copyLink && <p className="fixed top-[23%] - right-[5%] font-semibold border-2 border-gray-400 rounded-lg text-slate-600 p-2 bg-white z-10">Link Copied</p>}
+            {copyLink && <p className="fixed top-[23%] right-[5%] font-semibold border-2 border-gray-400 rounded-lg text-slate-600 p-2 bg-white z-10">Link Copied</p>}
+            <ListingInfo listing={listing} />
         </main>
     )
 }
