@@ -1,11 +1,14 @@
 import {FaMapMarkerAlt ,FaBed , FaBath , FaParking , FaChair} from 'react-icons/fa';
+import BtnContactLandLoard from './BtnContactLandLoard';
+import { getAuth } from 'firebase/auth';
 
 const ListingInfo =({listing})=>{
 
+    const auth = getAuth();
 
     return(
         <div className="m-4 max-w-6xl flex flex-col md:flex-row lg:mx-auto p-4 rounded-lg shadow-lg bg-white lg:space-x-5 ">
-            <div className="-300 w-full h-[200px] lg[400px]">
+            <div className=" w-full pr-2 mb-2 ">
                 <p className="font-bold text-2xl mb-3 text-blue-900">
                     {listing.name} - $ {listing.offers? listing.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                                                     : listing.regprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -47,9 +50,9 @@ const ListingInfo =({listing})=>{
                         {listing.furnished ? 'Furnished' : 'Not Furnished'}
                     </li>
                 </ul>
+                {listing.userRef !== auth.currentUser?.uid && <BtnContactLandLoard listing={listing} userRef={listing.userRef}/>}
             </div>
             <div className="bg-blue-300 w-full h-[200px] lg[400px] z-10 overflow-x-hidden">
-
             </div>
         </div>
 )}
