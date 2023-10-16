@@ -1,13 +1,15 @@
 import {FaMapMarkerAlt ,FaBed , FaBath , FaParking , FaChair} from 'react-icons/fa';
 import BtnContactLandLoard from './BtnContactLandLoard';
 import { getAuth } from 'firebase/auth';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
 const ListingInfo =({listing})=>{
 
     const auth = getAuth();
+    const position = [26.7  , 30.75];
 
     return(
-        <div className="m-4 max-w-6xl flex flex-col md:flex-row lg:mx-auto p-4 rounded-lg shadow-lg bg-white lg:space-x-5 ">
+        <div className="m-4 max-w-6xl flex flex-col md:flex-row lg:mx-auto p-5 rounded-lg shadow-lg bg-white lg:space-x-5 ">
             <div className=" w-full pr-2 mb-2 ">
                 <p className="font-bold text-2xl mb-3 text-blue-900">
                     {listing.name} - $ {listing.offers? listing.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -52,7 +54,20 @@ const ListingInfo =({listing})=>{
                 </ul>
                 {listing.userRef !== auth.currentUser?.uid && <BtnContactLandLoard listing={listing} userRef={listing.userRef}/>}
             </div>
-            <div className="bg-blue-300 w-full h-[200px] lg[400px] z-10 overflow-x-hidden">
+            <div className="w-full mt-4 md:mt-1 ml-2 h-[200px] md:h-[400px] rounded  z-10 overflow-x-hidden">
+                <MapContainer center={position} 
+                                zoom={5} scrollWheelZoom={false}
+                                style={{height:'100%' , with:'100%'}}>
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={position}>
+                        <Popup>
+                            A pretty CSS3 popup. <br /> Easily customizable.
+                        </Popup>
+                    </Marker>
+                </MapContainer>
             </div>
         </div>
 )}
