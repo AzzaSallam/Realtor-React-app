@@ -1,19 +1,27 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+
 import {getFirestore} from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
-    apiKey: "AIzaSyCwoxHUQi_MfFXIZHAZZHbPiX96BY_3XDM",
-    authDomain: "realtor-react-app-3571f.firebaseapp.com",
-    projectId: "realtor-react-app-3571f",
-    storageBucket: "realtor-react-app-3571f.appspot.com",
-    messagingSenderId: "839832346682",
-    appId: "1:839832346682:web:148ce606f74872dc0a1503"
+    apiKey: "AIzaSyAQGwrhaQyimdpCRZeQ1i1BOih3ko0D8tc",
+    authDomain: "realtor-app-d0cce.firebaseapp.com",
+    projectId: "realtor-app-d0cce",
+    storageBucket: "realtor-app-d0cce.appspot.com",
+    messagingSenderId: "425977456161",
+    appId: "1:425977456161:web:70736ccec3f67387b6e560",
+    measurementId: "G-6BK1XD564K"
 };
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
+
 export const db = getFirestore();
+
+
+

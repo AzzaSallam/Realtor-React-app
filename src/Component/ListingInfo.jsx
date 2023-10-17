@@ -3,10 +3,13 @@ import BtnContactLandLoard from './BtnContactLandLoard';
 import { getAuth } from 'firebase/auth';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
+
 const ListingInfo =({listing})=>{
 
     const auth = getAuth();
     const position = [26.7  , 30.75];
+
+
 
     return(
         <div className="m-4 max-w-6xl flex flex-col md:flex-row lg:mx-auto p-5 rounded-lg shadow-lg bg-white lg:space-x-5 ">
@@ -56,7 +59,7 @@ const ListingInfo =({listing})=>{
             </div>
             <div className="w-full mt-4 md:mt-1 ml-2 h-[200px] md:h-[400px] rounded  z-10 overflow-x-hidden">
                 <MapContainer center={position} 
-                                zoom={5} scrollWheelZoom={false}
+                                zoom={6} scrollWheelZoom={false}
                                 style={{height:'100%' , with:'100%'}}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -68,6 +71,7 @@ const ListingInfo =({listing})=>{
                         </Popup>
                     </Marker>
                 </MapContainer>
+
             </div>
         </div>
 )}
