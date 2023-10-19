@@ -51,7 +51,7 @@ const Slider = ()=>{
                         modules={[EffectFade]} autoplay={{delay : 3000}}>
                 {listings.map(({id , data})=>(
                     <SwiperSlide key={id} onClick={()=> navigate(`/category/${data.type}/${id}`)}>
-                        <div className='relative w-full h-[400px] overflow-hidden' style={{
+                        <div className='relative w-full h-[350px] overflow-hidden' style={{
                                 background: `url(${data.imgUrls[0]}) center , no-repeat`,
                                 backgroundSize :'cover'
                         }}>

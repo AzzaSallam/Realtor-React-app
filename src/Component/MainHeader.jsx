@@ -26,7 +26,7 @@ export default function MainHeader() {
         };
     }
 
-    const activeClass = `${'text-black  border-b-[3px]  border-b-red-500  transition duration-300 ease-out hover:ease-in'}`;
+    const activeClass = `${'text-black  border-b-[3px] border-b-red-500  transition duration-300 ease-out hover:ease-in'}`;
 
     return (
         <div className='bg-white border-b shadow-sm sticky top-0 z-40 '>
