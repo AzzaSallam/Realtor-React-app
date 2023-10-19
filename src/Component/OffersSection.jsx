@@ -5,7 +5,7 @@ const OffersSection = ({onOffer})=>{
 
     return(
         <div className="m-2 mb-6">
-            <h1 className="font-semibold px-2 text-2xl mt-6 ">Recent Offers</h1>
+            <h1 className="font-semibold px-2 text-2xl mt-6 ">Recent offers</h1>
             <Link to='/offers'>
                 <p className="px-3 text-sm font-semibold cursor-pointer text-blue-600 
                             hover:text-blue-800 transition duration-150 ease-in-out">

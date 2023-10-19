@@ -27,7 +27,8 @@ const ListingItem = ({listing , id  , onConfirmDelete ,onEdit})=>{
                     <p className="font-semibold text-sm mb-[2px] text-gray-600 truncate">{listing.address}</p>
                 </div>
                 <p className="font-semibold m-0 text-xl truncate">{listing.name}</p>
-                {listing.offers && <del className="text-xs mt-2 font-semibold text-red-500">${listing.offers &&listing.regprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</del> }
+                {/* del price */}
+                {listing.offers && <del className="text-xs  font-semibold text-red-500">${listing.offers &&listing.regprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</del> }
                 <div className="flex text-[#457b9d]  font-semibold">
                     { 
                         listing.offers ? (<p>${listing.discprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")  } </p>)

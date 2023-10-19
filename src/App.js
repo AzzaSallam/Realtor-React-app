@@ -13,6 +13,7 @@ import Root from "./Component/Root";
 import CreateListing from "./Pages/CreateListing";
 import EditListing from "./Pages/EditListing";
 import Listing from './Pages/Listing';
+import Category from "./Pages/Category";
 
 
 const routerContainer = createBrowserRouter([
@@ -30,6 +31,7 @@ const routerContainer = createBrowserRouter([
         ]
       },
       {path : 'offers' , element: <Offers/>},
+      {path : 'category/:categoryName' , element: <Category/>},
       {path : 'category/:categoryType/:listingId' , element: <Listing/>},
       {path : 'forgot-password' , element: <ForgotPassword/>},
     ]

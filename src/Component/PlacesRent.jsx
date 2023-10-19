@@ -5,7 +5,7 @@ const PlacesRent = ({onRent})=>{
 
     return(
         <div className="m-2 mb-6">
-            <h1 className="font-semibold px-3 text-2xl mt-6 ">Places for rent</h1>
+            <h1 className="font-semibold px-3 text-2xl mt-6 text-red-500">Places for rent</h1>
             <Link to='/category/rent'>
                 <p className="px-3 text-sm font-semibold cursor-pointer text-blue-600 
                             hover:text-blue-800 transition duration-150 ease-in-out">

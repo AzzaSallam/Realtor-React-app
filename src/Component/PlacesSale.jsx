@@ -5,7 +5,7 @@ const PlacesSale = ({onSale})=>{
 
     return(
         <div className="m-2 mb-6">
-            <h1 className="font-semibold px-3 text-2xl mt-6 ">Places for sale</h1>
+            <h1 className="font-semibold px-3 text-2xl mt-6 text-red-600">Places for sale</h1>
             <Link to='/category/sale'>
                 <p className="px-3 text-sm font-semibold cursor-pointer text-blue-600 
                             hover:text-blue-800 transition duration-150 ease-in-out">

@@ -4,19 +4,21 @@ import { db } from '../firebase';
 import { toast } from 'react-toastify';
 import Spinner from '../Component/Spinner';
 import ListingItem from '../Component/ListingsItem';
+import { useParams } from 'react-router-dom';
 
-const Offers = ()=> {
+const Category = ()=> {
 
     const[loading , setLoading] = useState(true);
     const[listings , setListings]= useState(null);
     const [lastListing , setLastListing] = useState(null);
+    const params = useParams();
 
     useEffect(()=>{
         async function fetchListings() {
             try {
                 const listingRef = collection(db , 'listings');
                 const q = query(listingRef , 
-                        where('offers' , '==' , true) , 
+                        where('type' , '==' , params.categoryName) , 
                         orderBy('timestamp' , 'desc') , 
                         limit(8));
                 const querySnap =await getDocs(q);
@@ -36,13 +38,13 @@ const Offers = ()=> {
             }
         }
         fetchListings();
-    },[lastListing]);
+    },[params.categoryName]);
 
     //fetch more function
     const fetchMoreListings =async ()=>{
         try {
             const listingRef = collection(db , 'listings');
-            const q = query(listingRef , where('offers' , '==' , true) , 
+            const q = query(listingRef , where('type' , '==' , params.categoryName) , 
                             orderBy('timestamp' , 'desc') , limit(4));
             const querySnap = getDocs(q);
             const lastListingVisible = querySnap.docs[ querySnap.docs.length - 1 ];
@@ -63,7 +65,10 @@ const Offers = ()=> {
 
     return (
         <div className='max-w-6xl mx-auto px-3'>
-            <h1 className='text-4xl text-center my-6 mb-2 font-bold text-red-500'>Off<span className='text-black'>ers</span></h1>
+            <h1 className='text-4xl text-center my-7 mb-2 font-bold text-red-500'>
+                {params.categoryName === 'rent' ? 'Places fot rent' 
+                                                : 'places for sale'}
+            </h1>
             {loading ? (
                 <Spinner/>
             ) : listings && listings.length >0 ? (
@@ -93,4 +98,4 @@ const Offers = ()=> {
     );
 };
 
-export default Offers;
+export default Category;

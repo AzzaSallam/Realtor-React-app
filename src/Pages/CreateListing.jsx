@@ -84,7 +84,8 @@ const CreateListing = ()=>{
                         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                         console.log('Upload is ' + progress + '% done');
-                        switch (snapshot.state) {
+                        // eslint-disable-next-line default-case
+                        switch(snapshot.state){
                             case "paused":
                                 console.log("Upload is paused");
                                 break;
@@ -250,7 +251,7 @@ const CreateListing = ()=>{
                     <p className="text-lg font-bold mt-6 mb-2">Regular Price</p>
                     <div className="flex space-x-6  items-center w-full">
                         <div>
-                        <input type="number" id="regprice" value={regprice} onChange={onChangeInputsHandler} min='50' max='400000' required 
+                        <input type="number" id="regprice" value={regprice} onChange={onChangeInputsHandler} min='50' max='10000000' required 
                                 className="w-full mr-3 px-4 py-2 text-lg text-center text-gray-700 bg-white border-transparent border-b-gray-400 rounded transition duration-150 ease-in-out focus:bg-white "/>
                         </div>
                         {type==='rent' &&(
@@ -267,7 +268,7 @@ const CreateListing = ()=>{
                     <p className="text-lg font-bold mt-6 mb-2">Discounted Price</p>
                     <div className="flex space-x-6  items-center w-full">
                         <div>
-                        <input type="number" id="discprice" value={discprice} onChange={onChangeInputsHandler} min='50' max='400000' required={offers} 
+                        <input type="number" id="discprice" value={discprice} onChange={onChangeInputsHandler} min='50' max='10000000' required={offers} 
                                 className="w-full mr-3 px-4 py-2 text-lg text-center text-gray-700 bg-white border-transparent border-b-gray-400 rounded transition duration-150 ease-in-out focus:bg-white "/>
                         </div>
                         {type==='rent' &&(
