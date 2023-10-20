@@ -9,12 +9,12 @@ import {getFirestore} from 'firebase/firestore';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCgdFw8UKLB_VZc3f2MM_LG4m9YQTpS_mc",
-    authDomain: "realtor2-app.firebaseapp.com",
-    projectId: "realtor2-app",
-    storageBucket: "realtor2-app.appspot.com",
-    messagingSenderId: "211362095394",
-    appId: "1:211362095394:web:57a80467c1af564c5c857b"
+    apiKey: "AIzaSyDdP6HvBCLzwhDPHy-FuQjKpOf7OuCfwfM",
+    authDomain: "react-realtor512.firebaseapp.com",
+    projectId: "react-realtor512",
+    storageBucket: "react-realtor512.appspot.com",
+    messagingSenderId: "620538418031",
+    appId: "1:620538418031:web:af7f6cf74552eef2330e9a"
 };
 
 // Initialize Firebase

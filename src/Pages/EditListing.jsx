@@ -13,7 +13,7 @@ const EditListing = ()=>{
 
     const auth = getAuth();
     const navigate = useNavigate();
-    const [geoLocationEnabled , setGeoLocationEnabled] = useState(false);
+    // const [geoLocationEnabled , setGeoLocationEnabled] = useState(false);
     const[loading , setLoading] = useState(false);
     const [listing , setListing] = useState(null);
     const [formData , setFormData] = useState({
@@ -29,12 +29,10 @@ const EditListing = ()=>{
         regprice:0,
         discprice:0,
         imgs:{},
-        latitude :0,
-        longitude:0
     });
 
     const {type , name , bedrooms , bathrooms , parking , furnished ,address , description , 
-    offers , regprice , discprice, imgs , latitude ,longitude} = formData;
+    offers , regprice , discprice, imgs } = formData;
 
     const params = useParams();
 
@@ -116,6 +114,7 @@ const EditListing = ()=>{
                         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
                         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                         console.log('Upload is ' + progress + '% done');
+                        // eslint-disable-next-line default-case
                         switch (snapshot.state) {
                             case "paused":
                                 console.log("Upload is paused");
@@ -246,7 +245,7 @@ const EditListing = ()=>{
                     id="address" onChange={onChangeInputsHandler} required className={`${inputClass}`}/>
                 </div>
                 {/* GeoLocation Enable */}
-                {!geoLocationEnabled &&(
+                {/* {!geoLocationEnabled &&(
                     <div className="flex space-x-6">
                         <div>
                             <p className="text-lg font-bold mt-6 mb-2">Latitude</p>
@@ -259,7 +258,7 @@ const EditListing = ()=>{
                                 className="w-full mr-3 px-4 py-2 text-lg text-center text-gray-700 bg-white border-transparent border-b-gray-400 rounded transition duration-150 ease-in-out focus:bg-white "/>
                         </div>
                     </div>
-                )}
+                )} */}
                 {/* Description feild */}
                 <div>
                     <p className="text-lg font-bold mt-5 mb-2">Description</p>
