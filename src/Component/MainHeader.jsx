@@ -35,7 +35,7 @@ export default function MainHeader() {
                     <img src={logoimg} alt='logo' className='h-7 cursor-pointer' onClick={()=>navigate('/')}/>
                 </div>
                 <div>
-                    <ul className='flex space-x-10 font-semibold text-gray-500 text-lg'>
+                    <ul className='flex space-x-5 items-center justify-center font-semibold text-gray-500 text-lg'>
                         <li onClick={()=>navigate('/')} className={`py-3 cursor-pointer hover:text-black ${matchLocation('/') && activeClass}`}>Home</li>
                         <li onClick={()=>navigate('/offers')} className={`py-3 cursor-pointer hover:text-black ${matchLocation('/offers') && activeClass}`}>Offers</li>
                         <li onClick={()=>navigate('/profile')} className={`py-3 cursor-pointer hover:text-black ${(matchLocation('/sign-in')||matchLocation('/profile')) && activeClass}`}>{pageState}</li>
