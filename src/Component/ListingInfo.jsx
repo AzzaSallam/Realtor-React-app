@@ -37,20 +37,20 @@ const ListingInfo =({listing})=>{
                     <span className='font-semibold'>Description - </span>
                     {listing.description}
                 </p>
-                <ul className='flex items-center space-x-2 whitespace-nowrap  justify-center sm:space-x-10 text-sm font-semibold '>
-                    <li className='flex items-center whitespace-nowrap'>
+                <ul className='flex items-center  flex-wrap justify-start mx-auto  sm:space-x-10 text-sm font-semibold '>
+                    <li className='flex space-x-2 items-center mb-2 mr-4 whitespace-nowrap'>
                         <FaBed className='text-lg mr-1'/>
                         {+listing.bedrooms >1 ? `${listing.bedrooms} Beds ` : '1 Bed'}
                     </li>
-                    <li className='flex items-center whitespace-nowrap'>
+                    <li className='flex space-x-2 items-center mb-2  mr-4 whitespace-nowrap'>
                         <FaBath className='text-lg mr-1'/>
                         {+listing.bathrooms >1 ? `${listing.bathrooms} Baths ` : '1 Bath'}
                     </li>
-                    <li className='flex items-center whitespace-nowrap'>
+                    <li className='flex space-x-2 items-center mb-2 mr-4  whitespace-nowrap'>
                         <FaParking className='text-lg mr-1'/>
                         {listing.parking ? 'Parking spot' : 'No Parking'}
                     </li>
-                    <li className='flex items-center whitespace-nowrap'>
+                    <li className='flex  items-center pb-3  justify-start whitespace-nowrap'>
                         <FaChair className='text-lg mr-1'/>
                         {listing.furnished ? 'Furnished' : 'Not Furnished'}
                     </li>

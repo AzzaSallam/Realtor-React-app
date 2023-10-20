@@ -31,7 +31,7 @@ const BtnContactLandLoard =({listing , userRef})=>{
     return(
         <div >
             {!contactLandloard && <button onClick={()=>{setContactLandloard(true)}}
-                className={`${btnClass} mt-6`}>
+                className={`${btnClass} mt-6`} >
                 Contact Landlord
             </button>}
 
@@ -39,8 +39,8 @@ const BtnContactLandLoard =({listing , userRef})=>{
                 <div className="flex flex-col w-full mt-4"> 
                     <p className="font-semibold text-blue-700">Contact {landlord.name} for the {listing.name.toLowerCase()}</p>
                     <textarea name="message" id="message"  rows="2" value={message} onChange={onChangeHandller}
-                                className="w-full mt-2 mb-5 text-gray-700 text-xl px-4 py-2 bg-white border-gray-300 
-                                rounded transition duration-150 ease-in-out focus:text-gray-700 ">
+                                className="w-full mt-2 mb-5 text-gray-700 text-xl px-4 py-2 bg-white border-gray-600 
+                                rounded transition duration-150  ease-in-out focus:text-gray-700 ">
                     </textarea>
                     <a href={`mailto:${landlord.email}?Subject=${listing.name}&body=${message}`}>
                         <button type="button" className={`${btnClass}`}>Send Message</button>
