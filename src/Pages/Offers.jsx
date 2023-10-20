@@ -57,7 +57,7 @@ const Offers = ()=> {
             setListings((prevState)=>[...prevState , ...listingsarr]);
             setLoading(false)
         } catch (error) {
-            toast.error("Could not fetch listing");
+            toast.error("There are no offers");
         }
     }
 
