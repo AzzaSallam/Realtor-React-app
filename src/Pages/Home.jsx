@@ -32,7 +32,7 @@ const Home = ()=> {
             }
         }
         fetchOffersListings();
-    },[offersListings])
+    },[])
 
 //Fetching Places for Rent 
     useEffect(()=>{
@@ -54,7 +54,7 @@ const Home = ()=> {
             }
         }
         fetchRentListings();
-    },[rentListings])
+    },[])
 
 //Fetching Places for Sale 
     useEffect(()=>{
@@ -76,7 +76,7 @@ const Home = ()=> {
             }
         }
         fetchSalePlaces();
-    },[saleListings])
+    },[])
 
 
     return (
