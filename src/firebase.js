@@ -19,7 +19,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-initializeApp(firebaseConfig);
+initializeApp(firebaseConfig , {apiKey: "AIzaSyA-uL4Ym9a3NPJgcMPVaWCQxFDl9jnEmCw"});
 
 export const db = getFirestore();
 

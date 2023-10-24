@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import AuthButton from './AuthButton';
 import { toast } from 'react-toastify';
-import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+import { getAuth, sendPasswordResetEmail} from 'firebase/auth';
 
 
 export default function ForgotPassForm() {
